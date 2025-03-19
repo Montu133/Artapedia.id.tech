@@ -1,187 +1,155 @@
-/* Global Styles */
+/* Reset dan font dasar */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
 }
-.hidden {
-  display: none;
-}
 
 /* Header & Navigasi */
 header {
-  background-color: #004aad;
+  background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
+  padding: 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
-header h1 {
-  font-size: 1.8em;
+
+header .logo h1 {
+  font-size: 1.5rem;
 }
+
 nav ul {
   list-style: none;
   display: flex;
 }
+
 nav ul li {
-  margin-left: 15px;
+  margin-left: 1rem;
 }
+
 nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
-nav ul li a:hover {
-  text-decoration: underline;
-}
 
-/* Loading Screen */
-#loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Section styling */
+section {
+  padding: 2rem;
+  margin-bottom: 2rem;
   background: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #004aad;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 10px;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Content Sections */
-.content-section {
-  padding: 20px;
-  margin-top: 10px;
-}
-.message-box {
-  background: #e0f0ff;
-  border: 1px solid #004aad;
-  padding: 15px;
+  margin: 1rem auto;
+  max-width: 1200px;
   border-radius: 5px;
-  margin-bottom: 20px;
-}
-.server-warning {
-  font-style: italic;
-  color: #cc0000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Table Styles */
+#welcome-message {
+  margin-bottom: 1.5rem;
+}
+
+.server-warning {
+  font-size: 0.9rem;
+  color: #d9534f;
+}
+
+/* Tabel Member */
+.table-container {
+  overflow-x: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
+
 table th, table td {
-  padding: 10px;
+  padding: 1rem;
   border: 1px solid #ddd;
   text-align: center;
 }
+
 table th {
-  background-color: #004aad;
-  color: #fff;
+  background-color: #f8f8f8;
 }
 
-/* Button Styles */
-button {
-  background-color: #004aad;
+/* Tombol cek kuota */
+.btn-check {
+  background-color: #007bff;
   color: #fff;
+  padding: 0.5rem 1rem;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-button:hover {
-  background-color: #003a8c;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
 }
 
-/* Pop-up Styles */
-.popup {
+.btn-check:hover {
+  background-color: #0056b3;
+}
+
+/* Modal Pop-up */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1001;
   opacity: 0;
-  transition: opacity 0.5s;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
-.popup.show {
+
+.modal.show {
   opacity: 1;
   pointer-events: auto;
 }
-.popup-content {
+
+.modal-content {
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 2rem;
+  border-radius: 5px;
+  position: relative;
   text-align: center;
-  width: 300px;
-}
-.popup-content h2 {
-  margin-bottom: 15px;
+  width: 90%;
+  max-width: 400px;
 }
 
-/* Circle Indicator */
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Circle indikator kuota */
 .circle {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  margin: 0 auto 10px;
+  margin: 1rem auto;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 1.2em;
+  align-items: center;
+  font-size: 1.5rem;
   color: #fff;
-  transition: background-color 0.5s;
-}
-.circle.safe {
-  background-color: #28a745; /* Hijau untuk kuota aman */
-}
-.circle.warning {
-  background-color: #dc3545; /* Merah untuk kuota hampir habis */
-}
+  transition: background-color 0.3s ease, transform 0.3s ease;\n}
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-  }
-  nav ul li {
-    margin: 5px 0;
-  }
-  .popup-content {
-    width: 90%;
-  }
-}
+/* Warna default, nanti akan diubah via JS */
+.circle.safe {\n  background-color: #28a745; /* hijau */\n}\n\n.circle.low {\n  background-color: #dc3545; /* merah */\n}\n\n.hidden {\n  display: none;\n}\n\n/* Responsive */\n@media (max-width: 768px) {\n  header {\n    flex-direction: column;\n    align-items: flex-start;\n  }\n\n  nav ul {\n    flex-direction: column;\n    width: 100%;\n  }\n\n  nav ul li {\n    margin: 0.5rem 0;\n  }\n}\n"}
+  
