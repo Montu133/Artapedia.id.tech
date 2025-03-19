@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Simulasi animasi loading (2 detik), setelah itu tampilkan konten
+  // Simulasi animasi loading (15 detik), setelah itu tampilkan konten
   setTimeout(() => {
     document.getElementById('loading-screen').classList.add('hidden');
     document.querySelectorAll('.content-section').forEach(section => section.classList.remove('hidden'));
-  }, 2000);
+  }, 5000);
 
   // Daftar anggota dengan kuota awal (dalam GB)
   const members = [
