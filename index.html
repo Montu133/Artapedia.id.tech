@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAOTA Arta XL Circle</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Animasi Loading -->
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <h1>Memuat...</h1>
+  </div>
+
+  <!-- Header & Navigasi -->
+  <header>
+    <h1>KAOTA Arta XL Circle</h1>
+    <nav>
+      <ul>
+        <li><a href="#homepage">Beranda</a></li>
+        <li><a href="#info-section">Informasi Member</a></li>
+        <li><a href="#about-section">Tentang</a></li>
+        <li><a href="#warning-section">Peringatan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Homepage / Pesan Sambutan & Tabel Member -->
+  <section id="homepage" class="content-section hidden">
+    <div id="welcome-message" class="message-box">
+      <p>Selamat datang di KAOTA Arta XL Circle! Nikmati layanan terbaik untuk cek kuota Anda. Harap perhatikan bahwa server kami selalu berusaha memberikan pengalaman terbaik meski mungkin ada gangguan sementara.</p>
+      <p class="server-warning">Mohon maaf apabila terjadi gangguan sinyal, server kami sedang dalam masa perbaikan untuk peningkatan kualitas.</p>
+    </div>
+    <table id="member-table">
+      <thead>
+        <tr>
+          <th>Nama Anggota</th>
+          <th>Sisa Kuota</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="member-list">
+        <!-- Data member akan diisi secara dinamis oleh JavaScript -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Halaman Informasi Member -->
+  <section id="info-section" class="content-section hidden">
+    <h2>Informasi Member</h2>
+    <div id="member-info">
+      <!-- Informasi tambahan anggota bisa ditambahkan di sini -->
+      <p>Berikut adalah daftar member beserta status kuotanya secara detail.</p>
+    </div>
+  </section>
+
+  <!-- Halaman Tentang -->
+  <section id="about-section" class="content-section hidden">
+    <h2>Tentang KAOTA Arta XL Circle</h2>
+    <p>
+      KAOTA Arta XL Circle adalah platform cek kuota dengan UI keren dan fitur lengkap. Layanan ini dirancang dengan tampilan profesional, bersih, dan user-friendly,
+      menyerupai website hosting atau PPOB pulsa. Kami berkomitmen memberikan pengalaman terbaik meski ada gangguan sinyal atau perbaikan server.
+    </p>
+  </section>
+
+  <!-- Halaman Peringatan -->
+  <section id="warning-section" class="content-section hidden">
+    <h2>Peringatan</h2>
+    <p id="warning-message"></p>
+  </section>
+
+  <!-- Pop-up Cek Kuota -->
+  <div id="quota-popup" class="popup hidden">
+    <div class="popup-content">
+      <h2 id="popup-member-name"></h2>
+      <div class="circle" id="quota-indicator"></div>
+      <p id="popup-quota-amount"></p>
+      <button onclick="closePopup()">Tutup</button>
+    </div>
+  </div>
+</body>
+</html>
