@@ -8,76 +8,73 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Animasi Loading -->
-  <div id="loading-screen">
-    <div class="spinner"></div>
-    <h1>Memuat...</h1>
-  </div>
-
   <!-- Header & Navigasi -->
   <header>
-    <h1>KAOTA Arta XL Circle</h1>
+    <div class="logo">
+      <h1>KAOTA Arta XL Circle</h1>
+    </div>
     <nav>
       <ul>
-        <li><a href="#homepage">Beranda</a></li>
-        <li><a href="#info-section">Informasi Member</a></li>
-        <li><a href="#about-section">Tentang</a></li>
-        <li><a href="#warning-section">Peringatan</a></li>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#info">Informasi Member</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#warning">Peringatan</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Homepage / Pesan Sambutan & Tabel Member -->
-  <section id="homepage" class="content-section hidden">
-    <div id="welcome-message" class="message-box">
+  <!-- Section Homepage -->
+  <section id="home">
+    <!-- Pesan Sambutan + Notifikasi Server -->
+    <div id="welcome-message">
       <p>Selamat datang di KAOTA Arta XL Circle! Nikmati layanan terbaik untuk cek kuota Anda. Harap perhatikan bahwa server kami selalu berusaha memberikan pengalaman terbaik meski mungkin ada gangguan sementara.</p>
       <p class="server-warning">Mohon maaf apabila terjadi gangguan sinyal, server kami sedang dalam masa perbaikan untuk peningkatan kualitas.</p>
     </div>
-    <table id="member-table">
-      <thead>
-        <tr>
-          <th>Nama Anggota</th>
-          <th>Sisa Kuota</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody id="member-list">
-        <!-- Data member akan diisi secara dinamis oleh JavaScript -->
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Halaman Informasi Member -->
-  <section id="info-section" class="content-section hidden">
-    <h2>Informasi Member</h2>
-    <div id="member-info">
-      <!-- Informasi tambahan anggota bisa ditambahkan di sini -->
-      <p>Berikut adalah daftar member beserta status kuotanya secara detail.</p>
+    <!-- Tabel Member -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Anggota</th>
+            <th>Sisa Kuota (GB)</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="member-list">
+          <!-- Data member akan dimuat via JavaScript -->
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <!-- Halaman Tentang -->
-  <section id="about-section" class="content-section hidden">
+  <!-- Section Informasi Member -->
+  <section id="info">
+    <h2>Informasi Member</h2>
+    <p>Di sini Anda dapat melihat detail anggota dan status kuotanya secara real-time.</p>
+    <!-- Anda dapat menambahkan informasi lebih lanjut sesuai kebutuhan -->
+  </section>
+
+  <!-- Section Tentang -->
+  <section id="about">
     <h2>Tentang KAOTA Arta XL Circle</h2>
-    <p>
-      KAOTA Arta XL Circle adalah platform cek kuota dengan UI keren dan fitur lengkap. Layanan ini dirancang dengan tampilan profesional, bersih, dan user-friendly,
-      menyerupai website hosting atau PPOB pulsa. Kami berkomitmen memberikan pengalaman terbaik meski ada gangguan sinyal atau perbaikan server.
-    </p>
+    <p>Website ini menyediakan layanan cek kuota dengan tampilan modern dan interaktif. Kami berusaha memberikan pengalaman terbaik meski mungkin ada gangguan sementara.</p>
   </section>
 
-  <!-- Halaman Peringatan -->
-  <section id="warning-section" class="content-section hidden">
+  <!-- Section Peringatan -->
+  <section id="warning">
     <h2>Peringatan</h2>
-    <p id="warning-message"></p>
+    <p>Jika sisa kuota hampir habis atau mencapai 0, segera lakukan pembelian kuota tambahan untuk memastikan layanan tetap berjalan.</p>
   </section>
 
-  <!-- Pop-up Cek Kuota -->
-  <div id="quota-popup" class="popup hidden">
-    <div class="popup-content">
-      <h2 id="popup-member-name"></h2>
-      <div class="circle" id="quota-indicator"></div>
-      <p id="popup-quota-amount"></p>
-      <button onclick="closePopup()">Tutup</button>
+  <!-- Modal Pop-up Cek Kuota -->
+  <div id="quota-popup" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2 id="member-name"></h2>
+      <div class="circle" id="quota-indicator">
+        <span id="quota-amount"></span>
+      </div>
+      <p id="popup-message"></p>
     </div>
   </div>
 </body>
